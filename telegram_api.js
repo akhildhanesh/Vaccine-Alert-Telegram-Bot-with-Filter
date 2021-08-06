@@ -12,11 +12,11 @@ module.exports = {
 
         const bot = new Telegraf(process.env.BOT_TOKEN)
 
-        bot.startPolling()
+        
         console.log('Telegram bot started.')
         bot.telegram.sendMessage(data.CHAT_ID, `${data.Details} \n🗓 ${data.Date} ⏰ ${data.Time}`, {reply_markup: keyboard.reply_markup, parse_mode: 'markdown'}).catch(console.error);
         console.log('Telegram triggered')
-        bot.stop()
+        
 
         process.once('SIGINT', () => bot.stop('SIGINT'))
         process.once('SIGTERM', () => bot.stop('SIGTERM'))
